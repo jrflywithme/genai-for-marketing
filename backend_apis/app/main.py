@@ -157,6 +157,7 @@ app = FastAPI(docs_url="/marketing-api/docs")
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[f"https://{project_id}.web.app"],
+   # allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

@@ -4,6 +4,7 @@ import express from 'express';
 import { fileURLToPath } from 'node:url';
 import { dirname, join, resolve } from 'node:path';
 import AppServerModule from './src/main.server';
+import cors from 'cors'; // Import the CORS middleware
 
 // The Express app is exported so that it can be used by serverless Functions.
 export function app(): express.Express {
@@ -14,6 +15,12 @@ export function app(): express.Express {
 
   const commonEngine = new CommonEngine();
 
+    // Enable CORS for specific origins
+    server.use(cors({
+      origin: '*', // Replace with your frontend's origin
+      methods: 'GET,POST,PUT,DELETE',
+      allowedHeaders: 'Content-Type,Authorization',
+    }));
   server.set('view engine', 'html');
   server.set('views', browserDistFolder);
 

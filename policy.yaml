@@ -1,0 +1,6 @@
+# policy.yaml
+name: projects/ai-agent-for-marketing/policies/iam.allowedPolicyMemberDomains
+spec:
+  rules:
+  -  allowAll: true
+  inheritFromParent: true
